@@ -2,6 +2,7 @@ package com.example.frasesdodia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -106,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
             "Não se deixe abater pelos fracassos do passado, amanhã tem muito mais!",
             "Sextou com S de Solidão!",
             "Jesus te ama, por que não conviver com você diariamente.",
-            "Se filha da puta voasse, tu não ia enxergar o céu!"
+            "Se filha da puta voasse, tu não ia enxergar o céu!",
+            "Não importa a cor do céu, quem faz o dia ser uma merda é você!"
 };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,10 +119,15 @@ public class MainActivity extends AppCompatActivity {
     public void gerarFrases(View view){
 
         TextView texto = findViewById(R.id.textFrase);
-        int numeroAleatorio = new Random().nextInt(88);
-
+        int numeroAleatorio = new Random().nextInt(90);
         String frase = frases[numeroAleatorio];
 
         texto.setText(frase);
+    }
+
+    public void share (View view){
+
+
+
     }
 }
