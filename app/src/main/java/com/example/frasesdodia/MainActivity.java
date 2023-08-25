@@ -3,6 +3,7 @@ package com.example.frasesdodia;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -126,8 +127,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void share (View view){
-
-
+        String i = "www.google.com.br";
+        Intent intente = new Intent(Intent.ACTION_VIEW, Uri.parse(i));
+        startActivity(intente);
 
     }
 }
