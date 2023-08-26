@@ -13,7 +13,7 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    String[] frases = {
+    private String[] frases = {
             "Não crie falsas esperanças, desista de uma vez!",
             "Nada é tão horrível quanto você!",
             "Se alguém te ofender sem você merecer, volte lá e mereça!",
@@ -111,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
             "Se filha da puta voasse, tu não ia enxergar o céu!",
             "Não importa a cor do céu, quem faz o dia ser uma merda é você!"
 };
+
+    private String frase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,15 +123,16 @@ public class MainActivity extends AppCompatActivity {
 
         TextView texto = findViewById(R.id.textFrase);
         int numeroAleatorio = new Random().nextInt(90);
-        String frase = frases[numeroAleatorio];
-
+        frase = frases[numeroAleatorio];
         texto.setText(frase);
     }
 
     public void share (View view){
-        String i = "www.google.com.br";
-        Intent intente = new Intent(Intent.ACTION_VIEW, Uri.parse(i));
-        startActivity(intente);
 
+        Intent intente = new Intent(Intent.ACTION_SEND);
+        intente.setType("text/plain");
+        String i = "Baixe nosso aplicativo na play store através do link https://play.google.com/store/apps/details?id=com.wolf.frasesdodia venha dar muitas risadas com frases como essa: \n\n" + frase;
+        intente.putExtra(Intent.EXTRA_TEXT, i);
+        startActivity(intente);
     }
 }
